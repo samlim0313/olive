@@ -1,7 +1,7 @@
 import * as React from "react"
-import { Typography, Grid, Container } from '@material-ui/core';
+import { Typography, Grid, Container, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'gatsby-theme-material-ui';
+import { Link } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     paddingTop: '3rem',
+    paddingBottom: '3rem',
     color: theme.palette.grey[400],
   }
 }));
@@ -16,32 +17,34 @@ const useStyles = makeStyles((theme) => ({
 function Footer () {
   const classes = useStyles();
   return (
-    <Container maxWidth='md'>
-      <Grid container direction='column' alignItems='center' className={classes.footer}>
-        <Grid item container justify='space-around' alignItems='stretch'>
-          <Grid item>
-            <Typography component={Link} to='/about' color='inherit' variant='body2' className={classes.link}>
-              교회소개
-            </Typography>
+    <Paper square>
+      <Container maxWidth='md'>
+        <Grid container direction='column' alignItems='center' className={classes.footer}>
+          <Grid item container justify='space-around' alignItems='stretch'>
+            <Grid item>
+              <Typography component={Link} to='/about' color='inherit' variant='body2' className={classes.link}>
+                교회소개
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography component={Link} to='/sermon' color='inherit' variant='body2' className={classes.link}>
+                설교
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography component={Link} to='/forest' color='inherit' variant='body2' className={classes.link}>
+                올리브 숲
+              </Typography>
+            </Grid>
           </Grid>
           <Grid item>
-            <Typography component={Link} to='/sermon' color='inherit' variant='body2' className={classes.link}>
-              설교
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography component={Link} to='/forest' color='inherit' variant='body2' className={classes.link}>
-              올리브 숲
+            <Typography variant='overline'>
+              &copy; {(new Date().getFullYear())} Olive Mission Church
             </Typography>
           </Grid>
         </Grid>
-        <Grid item>
-          <Typography variant='overline'>
-            &copy; {(new Date().getFullYear())} Olive Mission Church
-          </Typography>
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Paper>
   );
 }
 

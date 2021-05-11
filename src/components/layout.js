@@ -7,19 +7,16 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { Toolbar, Paper, Container } from '@material-ui/core';
+import { Toolbar, Container } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import Header from './header';
 import Footer from './footer';
 
 
-const innerTheme = createMuiTheme({
+const darkTheme = createMuiTheme({
   palette: {
-    type: 'light',
-    background: {
-      paper: '#FFFFF0'
-    }
+    type: 'dark',
   }
 });
 
@@ -27,16 +24,16 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header />
-      <Toolbar />
-      <ThemeProvider theme={innerTheme}>
-        <Paper square style={{minHeight: '50vh'}}>
-          <Container maxWidth='md'>
-            {children}
-          </Container>
-        </Paper>
+      <ThemeProvider theme={darkTheme}>
+        <Header />
       </ThemeProvider>
-      <Footer />
+      <Toolbar />
+      <Container maxWidth='md' style={{minHeight: '100vh'}}>
+        {children}
+      </Container>
+      <ThemeProvider theme={darkTheme}>
+        <Footer />
+      </ThemeProvider>
     </>
   )
 }
