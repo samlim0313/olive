@@ -29,12 +29,12 @@ function Header () {
         <Toolbar>
           <Grid container justify='flex-end' spacing={1} className={classes.menuHover}>
             <Grid item>
-              <Button to='/' activeClassName={classes.active}>
+              <Button to='/' activeClassName='MuiButton-containedPrimary'>
                 홈
               </Button>
             </Grid>
             <Grid item>
-              <Button to='/about' activeClassName={classes.active}>
+              <Button to='/about' activeClassName='MuiButton-containedPrimary'>
                 교회소개
               </Button>
               <Paper className={classes.menu}>
@@ -46,7 +46,7 @@ function Header () {
               </Paper>
             </Grid>
             <Grid item>
-              <Button to='/sermon' activeClassName={classes.active}>
+              <Button to='/sermon' activeClassName='MuiButton-containedPrimary'>
                 설교
               </Button>
               <Paper className={classes.menu}>
@@ -58,7 +58,7 @@ function Header () {
               </Paper>
             </Grid>
             <Grid item>
-              <Button to='/forest' activeClassName={classes.active}>
+              <Button to='/forest' activeClassName='MuiButton-containedPrimary'>
                 올리브 숲
               </Button>
               <Paper className={classes.menu}>

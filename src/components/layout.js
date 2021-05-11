@@ -24,9 +24,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <ThemeProvider theme={darkTheme}>
-        <Header />
-      </ThemeProvider>
+      <Header />
       <Toolbar />
       <Container maxWidth='md' style={{minHeight: '100vh'}}>
         {children}

@@ -14,7 +14,21 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-theme-material-ui`,
+    {
+      resolve: `gatsby-theme-material-ui`,
+      options: {
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: `Noto Sans KR`,
+                variants: [`300`, `400`, `500`, `700`],
+              },
+            ],
+          },
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-layout`,
