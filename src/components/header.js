@@ -1,42 +1,79 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { AppBar, Container, Toolbar, Grid, MenuList, MenuItem, Paper, } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Button } from 'gatsby-theme-material-ui';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const useStyles = makeStyles((theme) => ({
+  active: {
+    backgroundColor: theme.palette.action.hover,
+  },
+  menuHover: {
+    '& .MuiGrid-root:hover .MuiPaper-root': {
+      display: 'block'
+    }
+  },
+  menu: {
+    display: 'none',
+    position: 'absolute',
+    '& .MuiGrid-item:hover .MuiPaper-root': {
+      display: 'block'
+    }
+  },
+}));
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+function Header () {
+  const classes = useStyles();
+  return (
+    <AppBar color='default'>
+      <Container maxWidth='md'>
+        <Toolbar>
+          <Grid container justify='flex-end' spacing={1} className={classes.menuHover}>
+            <Grid item>
+              <Button to='/' activeClassName={classes.active}>
+                홈
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button to='/about' activeClassName={classes.active}>
+                교회소개
+              </Button>
+              <Paper className={classes.menu}>
+                <MenuList>
+                  <MenuItem>섬기는 분들</MenuItem>
+                  <MenuItem>예배안내</MenuItem>
+                  <MenuItem>오시는 길</MenuItem>
+                </MenuList>
+              </Paper>
+            </Grid>
+            <Grid item>
+              <Button to='/sermon' activeClassName={classes.active}>
+                설교
+              </Button>
+              <Paper className={classes.menu}>
+                <MenuList>
+                  <MenuItem>주일예배</MenuItem>
+                  <MenuItem>~</MenuItem>
+                  <MenuItem>~</MenuItem>
+                </MenuList>
+              </Paper>
+            </Grid>
+            <Grid item>
+              <Button to='/forest' activeClassName={classes.active}>
+                올리브 숲
+              </Button>
+              <Paper className={classes.menu}>
+                <MenuList>
+                  <MenuItem>~</MenuItem>
+                  <MenuItem>~</MenuItem>
+                  <MenuItem>~</MenuItem>
+                </MenuList>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
 }
 
 export default Header
