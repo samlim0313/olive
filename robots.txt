@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.olvevisionchurch.com/sitemap.xml
+Host: https://www.olvevisionchurch.com
