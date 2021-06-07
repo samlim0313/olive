@@ -26,6 +26,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <Toolbar />
+      <Toolbar />
       <Container maxWidth='md' style={{minHeight: '100vh'}}>
         {children}
       </Container>

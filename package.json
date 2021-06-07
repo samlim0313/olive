@@ -1,8 +1,8 @@
 {
-  "homepage": "www.olivesoop.com",
-  "name": "olivesoop",
+  "homepage": "www.olivevisionchurch.com",
+  "name": "olive-vision-church",
   "private": true,
-  "description": "Olive Soop",
+  "description": "Olive Vision Church",
   "version": "0.1.0",
   "author": "Samuel Lim <samlim0313@gmail.com>",
   "dependencies": {

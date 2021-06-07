@@ -1,7 +1,9 @@
 import * as React from "react"
 import { AppBar, Container, Toolbar, Grid, MenuList, MenuItem, Paper, } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button } from 'gatsby-theme-material-ui';
+import { Button, Link } from 'gatsby-theme-material-ui';
+
+import logo from '../images/logo.svg';
 
 const useStyles = makeStyles((theme) => ({
   active: {
@@ -19,6 +21,18 @@ const useStyles = makeStyles((theme) => ({
       display: 'block'
     }
   },
+  center: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logo: {
+    padding: '10px',
+    width: '100px',
+  },
+  gap: {
+    flexGrow: 1,
+  },
 }));
 
 function Header () {
@@ -27,7 +41,13 @@ function Header () {
     <AppBar color='default'>
       <Container maxWidth='md'>
         <Toolbar>
-          <Grid container justify='flex-end' spacing={1} className={classes.menuHover}>
+          <Grid container alignItems='center' spacing={1} className={classes.menuHover}>
+            <Grid item className={classes.center}>
+              <Link to='/' className={classes.center}>
+                <img src={logo} alt='olive vision church' className={classes.logo}></img>
+              </Link>
+            </Grid>
+            <Grid item className={classes.gap} />
             <Grid item>
               <Button to='/' activeClassName='MuiButton-containedPrimary'>
                 홈
