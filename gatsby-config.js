@@ -3,9 +3,12 @@ module.exports = {
     title: `Olive Vision Church`,
     description: `Church with a vision.`,
     author: `@samlim0313`,
+    keywords: `olive, vision, church, korea, korean, seoul`,
+    siteUrl: `https://www.olivevisionchurch.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -48,6 +51,14 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.olvevisionchurch.com',
+        sitemap: 'https://www.olvevisionchurch.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
     },
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
